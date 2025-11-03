@@ -1,0 +1,96 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "**/*",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/disney2/(.*)",
+      "dest": "/disney2/$1"
+    },
+    {
+      "src": "/landingYas2/(.*)",
+      "dest": "/landingYas2/$1"
+    },
+    {
+      "src": "/leaarn/(.*)",
+      "dest": "/leaarn/$1"
+    },
+    {
+      "src": "/makah1/(.*)",
+      "dest": "/makah1/$1"
+    },
+    {
+      "src": "/umravip1/(.*)",
+      "dest": "/umravip1/$1"
+    },
+    {
+      "src": "/vid/(.*)",
+      "dest": "/vid/$1"
+    },
+    {
+      "src": "/(.*\\.(jpg|jpeg|png|gif|svg|ico|css|js|mp4|webp|avif|heic))",
+      "dest": "/$1"
+    },
+    {
+      "src": "/disney2",
+      "dest": "/disney2/index.html"
+    },
+    {
+      "src": "/landingYas2",
+      "dest": "/landingYas2/index.html"
+    },
+    {
+      "src": "/leaarn",
+      "dest": "/leaarn/index.html"
+    },
+    {
+      "src": "/makah1",
+      "dest": "/makah1/index.html"
+    },
+    {
+      "src": "/umravip1",
+      "dest": "/umravip1/index.html"
+    },
+    {
+      "src": "/",
+      "dest": "/leaarn/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    },
+    {
+      "source": "/(.*\\.(mp4|webm|ogg))",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "video/mp4"
+        },
+        {
+          "key": "Accept-Ranges",
+          "value": "bytes"
+        }
+      ]
+    }
+  ]
+}
+
